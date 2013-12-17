@@ -14,7 +14,6 @@ int main(int argc, char * argv[]) {
 
   // Initialize MPI
   int rank, size;
-  const int root_rank = 0;
  
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -25,7 +24,7 @@ int main(int argc, char * argv[]) {
   int result = 0;
 
   if(arr_size == 1) {
-    if(rank == root_rank) {
+    if(rank == 0) {
       result = arr[0];
     }
   } else {
@@ -56,7 +55,7 @@ int main(int argc, char * argv[]) {
   }
 
   // Output result from root thread
-  if(rank == root_rank) {
+  if(rank == 0) {
     printf("%d\n", result);
   }
 
