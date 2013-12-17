@@ -51,9 +51,9 @@ int main(int argc, char * argv[]) {
 
   if(rank == 0) {
     // Init matrix only in master
-    x = 3000;
-    y = 3000;
-    z = 3000;
+    x = 1000;
+    y = 1000;
+    z = 1000;
   }
 
   MPI_Bcast(&x, 1, MPI_INT, 0, MPI_COMM_WORLD);
@@ -84,8 +84,6 @@ int main(int argc, char * argv[]) {
 
     // Send B rows to assigned worker
     for(int i = 0; i < z; i++) {
-      printf("%d\n", i);
-      fflush(stdout);
       for(int j = 0; j < y; j++) {
         Brow[j] = B[j][i];
       }
