@@ -14,9 +14,9 @@ include_directories(
 )
 
 # Labs
-set(LABS 2d_integrate 3d_integrate sum matrix_multiply)
+set(LABS 2d_integrate 3d_integrate sum matrix_multiply tridiagonal)
 
 FOREACH(NAME ${LABS})
-  set(SOURCES src/${NAME}.c )
+  set(SOURCES src/${NAME}.c)
   add_executable(${NAME} ${SOURCES})
 ENDFOREACH(NAME)
